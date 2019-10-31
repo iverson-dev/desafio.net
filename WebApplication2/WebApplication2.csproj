@@ -7,12 +7,17 @@
     <UserSecretsId>a142f54e-6392-4425-90d5-5f289941d2df</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Iverson Panasiewicz\source\repos\git\WebApplication2\WebApplication2.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <OpenApiReference Include="..\WebApplication1\appsettings.json" CodeGenerator="NSwagCSharp" Link="OpenAPIs\appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
   </ItemGroup>
 
 </Project>

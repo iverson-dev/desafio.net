@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace WebApplication2
 {
@@ -27,6 +28,16 @@ namespace WebApplication2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSwaggerGen(o =>
+            {
+                o.SwaggerDoc("v0", new OpenApiInfo { Title = "API para calcular juros compostos" });
+
+                var filePath = System.IO.Path.Combine(System.AppContext.BaseDirectory, "WebApplication2.xml");
+
+                o.IncludeXmlComments(filePath);
+            }
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +49,13 @@ namespace WebApplication2
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(o => {
+                o.SwaggerEndpoint("/swagger/v0/swagger.json", "Calculadora de juros compostos");
+            });
+
 
             app.UseRouting();
 

@@ -19,7 +19,17 @@ namespace WebApplication2.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Retorna o montante final de uma aplicação a juros compostos a partir dos parâmetros passados.
+        /// </summary>
+        /// <remarks>Função com parâmetros. Calcula-se os juros compostos a partir do valor inicial pela quantidade de meses informado. A taxa de juros é obtida automaticamente.</remarks>
+        /// <param name="valorInicial">Valor inicial a ser investido.</param>
+        /// <param name="meses">Quantidade de meses aplicados</param>
+        /// <response code="200">Total calculado no período.</response>        
+        /// <response code="500">Oops! Houve algum problema ao chamar o serviço!</response>
         [HttpGet("calculaJuros")]
+        [ProducesResponseType(typeof(string), 200)]
+        [ProducesResponseType(500)]
         public async Task<string> calculaJuros([FromQuery] decimal valorInicial, [FromQuery] int meses)
         {
             Calculator calculadora = new Calculator();
@@ -34,6 +44,13 @@ namespace WebApplication2.Controllers
             }
             return result.ToString("F");
         }
+
+        /// <summary>
+        /// Retorna o repositório no github onde o projeto foi salvo.
+        /// </summary>
+        /// <remarks></remarks>
+        /// <response code="200">Link para o repositório.</response>        
+        /// <response code="500">Oops! Houve algum problema ao chamar o serviço!</response>
 
         [HttpGet("showmethecode")]
         public string Get()
