@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApplication1</name>
+    </assembly>
+    <members>
+        <member name="M:WebApplication1.Controllers.TaxaJurosController.Get">
+            <summary>
+            Retorna a taxa de juros a ser utilizada
+            </summary>
+            <remarks>Função sem parâmetros. Inicialmente a taxa de juros é fixa para todas as requisições.</remarks>
+            <response code="200">Taxa de juros atual</response>        
+            <response code="500">Oops! Houve algum problema ao chamar o serviço</response>
+        </member>
+    </members>
+</doc>
