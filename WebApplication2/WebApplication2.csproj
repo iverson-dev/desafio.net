@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\WebApplication1</DockerfileContext>
+    <UserSecretsId>a142f54e-6392-4425-90d5-5f289941d2df</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <OpenApiReference Include="..\WebApplication1\appsettings.json" CodeGenerator="NSwagCSharp" Link="OpenAPIs\appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
+  </ItemGroup>
+
+</Project>
